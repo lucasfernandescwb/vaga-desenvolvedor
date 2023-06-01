@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  input, textarea { @apply p-1 neo-border outline-none transition-colors hover:bg-zinc-200 focus:bg-zinc-200 w-full; }
+  select { @apply p-1 neo-border outline-none w-full transition-colors hover:bg-zinc-200; }
+}
+
+@layer components {
+  .btn { @apply neo-border outline-none py-1 px-2 transition-all hover:shadow-neo font-medium select-none flex justify-center items-center; }
+  .card { @apply bg-white p-4 neo-border transition-all hover:shadow-neo; }
+  .tag { @apply px-[.5rem] transition-all neo-border rounded-full w-fit hover:cursor-default hover:inverse; }
+
+  .form { @apply w-full sm:w-[380px] bg-white p-4 neo-border shadow-neo; }
+  .avatar { @apply w-10 h-10 rounded-full overflow-hidden bg-zinc-200; }
+}
+
+@layer utilities {
+  .neo-border { @apply border-2 border-zinc-800; }
+
+  .neo-ghost { @apply border-none hover:bg-zinc-200 hover:shadow-none focus:bg-zinc-200; }
+  .btn.secondary { @apply neo-border hover:inverse hover:shadow-none }
+
+  .logo { @apply text-4xl font-bold select-none; }
+
+  .login-info { @apply text-xs sm:text-sm text-center block my-2; }
+
+  .avatar.md { @apply w-14 h-14; }
+
+  .card.disabled { @apply opacity-20 hover:shadow-none select-none; }
+
+  .inverse { @apply border-transparent bg-zinc-800 text-zinc-50; }
+
+  .error { @apply bg-red-500 text-white p-4 rounded my-2; }
+
+  .contrast-item { @apply font-medium select-none text-zinc-600; }
+
+  .clickable-title { @apply border-b-2 border-b-zinc-800 mb-2 w-fit cursor-pointer transition-colors hover:text-indigo-300 hover:border-indigo-300; }
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: #f1f3f5;
+}
+
+h1, h2, h3 {
+  font-weight: bold;
+  user-select: none;
+}
+
+h1 {
+  font-size: x-large;
+}
+
+h2 {
+  font-size: larger;
+}
+
+h3 {
+  font-size: large;
+}
+
+a {
+  font-weight: 500;
+}
+
+.wrapper {
+  max-width: 68rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.wrapper-body {
+  max-width: 68rem;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.neo-shadow-navbar {
+  border-bottom: 2px solid #000;
+}
+
+.animeLeft {
+  opacity: 0;
+  transform: translateX(-2rem);
+  animation: animeLeft 360ms forwards;
+}
+
+@keyframes animeLeft {
+  to { opacity: initial; transform: initial; }
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #6366f1;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+.loader.small {
+  width: 24px;
+  height: 24px;
+}
+
+@keyframes rotation {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+} 

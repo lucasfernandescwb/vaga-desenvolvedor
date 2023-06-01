@@ -1,0 +1,46 @@
+# backend gitignore
+project/back/.phpunit.cache
+project/back/node_modules
+project/back/public/build
+project/back/public/hot
+project/back/public/storage
+project/back/storage/*.key
+project/back/vendor
+project/back/.env.backup
+project/back/.env.production
+project/back/.phpunit.result.cache
+project/back/Homestead.json
+project/back/Homestead.yaml
+project/back/auth.json
+project/back/npm-debug.log
+project/back/yarn-error.log
+project/back/.fleet
+project/back/.idea
+project/back/.vscode
+
+# frontend gitignore
+
+# Logs
+project/front/logs
+project/front/*.log
+project/front/npm-debug.log*
+project/front/yarn-debug.log*
+project/front/yarn-error.log*
+project/front/pnpm-debug.log*
+project/front/lerna-debug.log*
+
+project/front/node_modules
+project/front/dist
+project/front/dist-ssr
+project/front/*.local
+
+# Editor directories and files
+project/front/.vscode/*
+project/front/!.vscode/extensions.json
+project/front/.idea
+project/front/.DS_Store
+project/front/*.suo
+project/front/*.ntvs*
+project/front/*.njsproj
+project/front/*.sln
+project/front/*.sw?

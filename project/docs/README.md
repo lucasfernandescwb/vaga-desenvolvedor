@@ -19,6 +19,7 @@ Clonar projeto
 Fazendo o setup do docker
 
 ```bash
+  cd project
   cd back
   docker-compose up -d
   docker-compose exec app bash
@@ -54,6 +55,7 @@ _URL -> http://localhost:8000/api/all-jobs (exemplo real de um endpoint)_
 Fazendo o setup do front
 
 ```bash
+  cd project
   cd front
 ```
 

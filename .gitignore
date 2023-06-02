@@ -1,4 +1,4 @@
-# backend gitignore
+# Backend gitignore
 project/back/.phpunit.cache
 project/back/node_modules
 project/back/public/build
@@ -17,8 +17,9 @@ project/back/yarn-error.log
 project/back/.fleet
 project/back/.idea
 project/back/.vscode
+project/back/.docker/mysql/dbata
 
-# frontend gitignore
+# Frontend gitignore
 
 # Logs
 project/front/logs

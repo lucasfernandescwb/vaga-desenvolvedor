@@ -26,7 +26,7 @@ export default function CompanyProfile() {
         const doIt = confirm("Are you sure?")
         if (doIt) {
             axiosClient.delete(`/users/${id}`)
-                .then(() => router('/'))
+                .then(() => location.reload())
         }
     }
 

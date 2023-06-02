@@ -34,7 +34,7 @@ export default function UserProfile() {
     const doIt = confirm("Are you sure?")
     if (doIt) {
       axiosClient.delete(`/users/${id}`)
-        .then(() => router('/'))
+        .then(() => location.reload())
     }
   }
 

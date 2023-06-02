@@ -3,7 +3,6 @@
 Projeto teste desenvolvido conforme os requisitos apresentados. O projeto foi feito com PHP 8.2, Laravel (back-end) e o front-end foi feito com React (Vite).
 Como é um teste, subirei os arquivos .env também, para facilitar a execução do app.
 
-
 ## Autor
 
 - [@lucasfernandescwb](https://github.com/lucasfernandescwb)
@@ -31,13 +30,7 @@ Instalando dependências
   composer install
 ```
 
-Gerar chave do projeto
-
-```bash
-  php artisan key:generate
-```
-
-Rodar migrations (factory)
+Rodar migrations (seeding)
 
 ```bash
   php artisan migrate:fresh --seed

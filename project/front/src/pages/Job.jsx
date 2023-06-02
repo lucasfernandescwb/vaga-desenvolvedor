@@ -20,25 +20,23 @@ export default function Job() {
     url: `/jobs/${id}`
   })
 
-  useEffect(() => {
-    if (user.id) {
-      axiosClient.get(`/users/${user.id}/jobs`)
-        .then(({ data }) => {
-          const jobId = data.map(v => v.pivot.job_id).filter(v => v === Number(id))
-          if (jobId[0] !== undefined) {
-            setUserJob(jobId[0])
-          } else {
-            setUserJob(0)
-          }
-        })
-    }
-  }, [user])
+  const getUserJobs = () => {
+    axiosClient.get(`/users/${user.id}/jobs`)
+      .then(({ data }) => {
+        const jobId = data.map(v => v.pivot.job_id).filter(v => v === Number(id))
+        if (jobId[0] !== undefined) {
+          setUserJob(jobId[0])
+        } else {
+          setUserJob(0)
+        }
+      })
+  }
 
   const onUnsubscribe = () => {
     setIsLoading(true)
 
     axiosClient.delete(`/users/${user.id}/jobs/${id}/unsubscribe`)
-      .then(() => location.reload())
+      .then(() => getUserJobs())
       .finally(() => setIsLoading(false))
   }
 
@@ -46,9 +44,15 @@ export default function Job() {
     setIsLoading(true)
 
     axiosClient.post(`/users/${user.id}/jobs/${id}/subscribe`)
-      .then(() => location.reload())
+      .then(() => getUserJobs())
       .finally(() => setIsLoading(false))
   }
+
+  useEffect(() => {
+    if (user.id) {
+      getUserJobs()
+    }
+  }, [user])
 
   if (loading) return (
     <div className='h-[calc(100vh_-_130px)] flex items-center justify-center'>

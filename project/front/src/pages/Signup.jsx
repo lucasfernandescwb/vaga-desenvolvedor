@@ -6,7 +6,7 @@ import { useStateContext } from "../lib/authContext";
 import Button from "../components/Button";
 
 export default function Signup() {
-  const { setUser, token, setToken } = useStateContext()
+  const { setUser, user, setToken } = useStateContext()
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -16,7 +16,7 @@ export default function Signup() {
   const passwordConfirmationRef = useRef()
   const companyRef = useRef()
 
-  if (token) {
+  if (user.id) {
     return <Navigate to={'/'} />
   }
 

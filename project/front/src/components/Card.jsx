@@ -1,9 +1,9 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom';
 
 import Button from './Button';
 import Tags from "./Tags";
 import axiosClient from '../lib/axiosClient';
-import { Link } from 'react-router-dom';
 
 export default function Card({ job, user }) {
   const [loading, setLoading] = useState(false)

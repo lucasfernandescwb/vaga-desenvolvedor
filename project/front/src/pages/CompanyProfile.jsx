@@ -30,7 +30,7 @@ export default function CompanyProfile() {
         }
     }
 
-    if (!token) return <Navigate to={'/login'} />
+    if (!user.id) return <Navigate to={'/login'} />
 
     if (loading) return (
         <div className='h-[calc(100vh_-_130px)] flex items-center justify-center'>

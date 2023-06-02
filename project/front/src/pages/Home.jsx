@@ -10,8 +10,9 @@ import axiosClient from '../lib/axiosClient'
 
 export default function Home() {
     const { user } = useStateContext()
-    const [pageContent, setPageContent] = useState({data: null})
+    const [pageContent, setPageContent] = useState({ data: null })
     const [loading, setLoading] = useState(false)
+    const [error, setError] = useState(null)
 
     useEffect(() => {
         getPagination()
@@ -25,7 +26,7 @@ export default function Home() {
             setPageContent(data)
             window.scrollTo(0, 0)
         } catch (err) {
-            console.log(err)
+            setError(err.message)
         } finally {
             setLoading(false)
         }
@@ -40,6 +41,12 @@ export default function Home() {
     return (
         <>
             <div className='animeLeft'>
+                {error && (
+                    <div className='error'>
+                        <p>{error}</p>
+                    </div>
+                )}
+
                 {pageContent.data !== null ? (
                     <>
                         {pageContent.error ? <h1>{pageContent.error}</h1> : <h1 className='mb-2'>Home</h1>}

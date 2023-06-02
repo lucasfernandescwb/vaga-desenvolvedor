@@ -6,14 +6,14 @@ import axiosClient from '../lib/axiosClient';
 import Button from "../components/Button";
 
 export default function Login() {
-  const { setUser, token, setToken } = useStateContext()
+  const { setUser, user, setToken } = useStateContext()
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   const emailRef = useRef()
   const passwordRef = useRef()
 
-  if (token) {
+  if (user.id) {
     return <Navigate to='/' />
   }
 

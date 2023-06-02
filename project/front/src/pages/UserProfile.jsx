@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useParams, useNavigate, Navigate } from "react-router-dom"
+import { useParams, Navigate } from "react-router-dom"
 
 import { useStateContext } from '../lib/authContext'
 
@@ -13,7 +13,7 @@ export default function UserProfile() {
   const { user, token } = useStateContext()
   const [jobs, setJobs] = useState([])
   const [loading, setLoading] = useState(false)
-  const router = useNavigate()
+  const [error, setError] = useState(null)
 
   useEffect(() => {
     getUserJobs()
@@ -26,7 +26,7 @@ export default function UserProfile() {
       .then(({ data }) => {
         setJobs(data)
       })
-      .catch(err => console.log(err))
+      .catch(err => setError(err.message))
       .finally(() => setLoading(false))
   }
 
@@ -38,9 +38,7 @@ export default function UserProfile() {
     }
   }
 
-  if (!token) {
-    return <Navigate to={'/login'} />
-  }
+  if (!user.id) return <Navigate to={'/login'} />
 
   if (loading) return (
     <div className='h-[calc(100vh_-_130px)] flex items-center justify-center'>
@@ -61,6 +59,12 @@ export default function UserProfile() {
         <Button title='Delete user' ghost onClick={() => deleteUser(id)} />
       </header>
 
+      {error && (
+        <div className="error">
+          <p>{error}</p>
+        </div>
+      )}
+
       {jobs && (
         <div>
           <h2 className="mb-4">Jobs you applied to:</h2>
@@ -69,6 +73,7 @@ export default function UserProfile() {
           </div>
         </div>
       )}
+      
     </div>
   )
 }

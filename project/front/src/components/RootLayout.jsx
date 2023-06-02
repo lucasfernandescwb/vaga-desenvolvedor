@@ -20,7 +20,6 @@ export default function RootLayout() {
     if (token) {
       axiosClient.get('/user')
         .then(({ data }) => setUser(data))
-        .catch(err => console.log(err))
     }
   }, [])
 

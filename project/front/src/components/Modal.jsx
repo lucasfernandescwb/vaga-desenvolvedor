@@ -36,7 +36,6 @@ export default function Modal({ setModal, user }) {
 
         try {
             await axiosClient.post('/jobs', payload)
-            console.log(salaryRef.current.value)
             location.reload()
         } catch (err) {
             const response = err.response

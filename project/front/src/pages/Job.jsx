@@ -32,6 +32,11 @@ export default function Job() {
       })
   }
 
+  const deleteJob = () => {
+    axiosClient.delete(`/jobs/${id}`)
+      .then(() => window.history.go(-1))
+  }
+
   const onUnsubscribe = () => {
     setIsLoading(true)
 
@@ -71,7 +76,10 @@ export default function Job() {
       {data && (
         <>
           <header className='mb-4'>
-            <h1 className='border-b-2 mb-2 border-gray-800 w-fit'>{data.title}</h1>
+            <div className='flex flex-col-reverse gap-4 sm:flex-row sm:gap-0 sm:items-center sm:justify-between mb-2'>
+              <h1 className='border-b-2 border-gray-800 w-fit'>{data.title}</h1>
+              {user.name === data.companyName && <Button title='Delete job' secondary onClick={deleteJob} contrast />}
+            </div>
             <p className='contrast-item mb-2'>{data.companyName}</p>
             <p className='contrast-item mb-1'>Email: <a className='font-bold text-indigo-400' href={`mailto: ${data.companyEmail}`}>{data.companyEmail}</a></p>
             <p className='contrast-item mb-1'>Located at: <span className='font-bold text-zinc-800'>{data.country}</span></p>

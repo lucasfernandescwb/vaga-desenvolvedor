@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Navigate, useNavigate, useParams } from 'react-router-dom'
+import { Navigate, useParams } from 'react-router-dom'
 
 import { useStateContext } from '../lib/authContext'
 import axiosClient from '../lib/axiosClient'
@@ -15,7 +15,6 @@ export default function CompanyProfile() {
     const { id } = useParams()
     const { user, token } = useStateContext()
     const [modal, setModal] = useState(false)
-    const router = useNavigate()
 
     const { data, error, loading } = useAxios({
         method: 'GET',

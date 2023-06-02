@@ -36,7 +36,7 @@ export default function Modal({ setModal, user }) {
 
         try {
             await axiosClient.post('/jobs', payload)
-            location.reload()
+            location.replace('/')
         } catch (err) {
             const response = err.response
             if (response && response.status === 422) {
